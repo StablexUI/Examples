@@ -14,6 +14,7 @@ import sx.themes.flatui.styles.ButtonStyle;
 import sx.themes.flatui.styles.CheckBoxStyle;
 import sx.themes.flatui.styles.ProgressBarStyle;
 import sx.themes.flatui.styles.RadioStyle;
+import sx.themes.flatui.styles.ScrollBarStyle;
 import sx.themes.flatui.styles.SliderStyle;
 import sx.themes.flatui.styles.TextInputStyle;
 import sx.themes.flatui.styles.TextStyle;
@@ -28,6 +29,7 @@ import sx.widgets.HBox;
 import sx.widgets.ProgressBar;
 import sx.widgets.Radio;
 import sx.widgets.Scroll;
+import sx.widgets.ScrollBar;
 import sx.widgets.TabBar;
 import sx.widgets.Text;
 import sx.widgets.TextInput;
@@ -577,8 +579,14 @@ class Main
         scroll.width  = 400;
         scroll.height = 300;
         scroll.addChild(bmp);
+        scroll.scrollX = 0.5 * scroll.getMaxScrollX();
+        scroll.scrollY = 0.5 * scroll.getMaxScrollY();
 
-        scroll.scrollBy(-bmp.width * 0.3, -bmp.height * 0.3);
+        scroll.horizontalBar = new ScrollBar();
+        scroll.horizontalBar.bottom.dip = 2;
+        scroll.verticalBar = new ScrollBar();
+        scroll.verticalBar.style = ScrollBarStyle.VERTICAL;
+        scroll.verticalBar.right.dip = 2;
 
         var vertical = new CheckBox();
         vertical.selected = true;
