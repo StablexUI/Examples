@@ -8,6 +8,7 @@ import sx.layout.LineLayout;
 import sx.skins.PaintSkin;
 import sx.properties.Align;
 import sx.skins.Skin;
+import sx.skins.Slice9Skin;
 import sx.Sx;
 import sx.themes.flatui.Icons;
 import sx.themes.flatui.styles.ButtonStyle;
@@ -84,7 +85,8 @@ class Main
             'Sliders'        => sliders(),
             'Checkboxes'     => checkBoxes(),
             'Radio Toggles'  => radios(),
-            'Scroll'         => scroll()
+            'Scroll'         => scroll(),
+            'Skins'          => skins()
         ];
 
         //to ensure pages maintain order on each application run.
@@ -601,6 +603,51 @@ class Main
         box.gap = 10;
         box.addChild(checks);
         box.addChild(scroll);
+
+        return box;
+    }
+
+
+    /**
+     * Description
+     */
+    static public function skins () : Widget
+    {
+        var container = new Widget();
+        container.width = 500;
+        container.height = 400;
+
+        var widget = new Widget();
+        widget.width  = 100;
+        widget.height = 100;
+        widget.top = 50;
+        widget.left = 50;
+
+        var skin = new Slice9Skin();
+        skin.bitmapData = Assets.getBitmapData('assets/winxp.png');
+        skin.slice = [5, 10, 32, 48];
+        widget.skin = skin;
+        container.addChild(widget);
+
+        var hSlider = new Slider();
+        hSlider.min = 60;
+        hSlider.max = 200;
+        hSlider.value = widget.width;
+        hSlider.left = 50;
+        hSlider.onChange.add(function(s) widget.width = s.value);
+        container.addChild(hSlider);
+
+        var vSlider = new Slider();
+        vSlider.style = SliderStyle.VERTICAL;
+        vSlider.min = 60;
+        vSlider.max = 200;
+        vSlider.value = widget.height;
+        vSlider.top = 50;
+        vSlider.onChange.add(function(s) widget.height = s.value);
+        container.addChild(vSlider);
+
+        var box = new VBox();
+        box.addChild(container);
 
         return box;
     }
