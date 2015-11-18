@@ -582,12 +582,6 @@ class Main
         scroll.scrollX = 0.5 * scroll.getMaxScrollX();
         scroll.scrollY = 0.5 * scroll.getMaxScrollY();
 
-        scroll.horizontalBar = new ScrollBar();
-        scroll.horizontalBar.bottom.dip = 2;
-        scroll.verticalBar = new ScrollBar();
-        scroll.verticalBar.style = ScrollBarStyle.VERTICAL;
-        scroll.verticalBar.right.dip = 2;
-
         var vertical = new CheckBox();
         vertical.selected = true;
         vertical.text = 'Vertical scrolling';
