@@ -614,14 +614,14 @@ class Main
     static public function skins () : Widget
     {
         var container = new Widget();
-        container.width = 500;
-        container.height = 400;
+        container.width = 200;
+        container.height = 200;
 
         var widget = new Widget();
         widget.width  = 100;
         widget.height = 100;
-        widget.top = 50;
-        widget.left = 50;
+        widget.top = 30;
+        widget.left = 30;
 
         var skin = new Slice9Skin();
         skin.bitmapData = Assets.getBitmapData('assets/winxp.png');
@@ -631,22 +631,28 @@ class Main
 
         var hSlider = new Slider();
         hSlider.min = 60;
-        hSlider.max = 200;
+        hSlider.max = 160;
         hSlider.value = widget.width;
-        hSlider.left = 50;
+        hSlider.left = 30;
         hSlider.onChange.add(function(s) widget.width = s.value);
         container.addChild(hSlider);
 
         var vSlider = new Slider();
         vSlider.style = SliderStyle.VERTICAL;
         vSlider.min = 60;
-        vSlider.max = 200;
+        vSlider.max = 160;
         vSlider.value = widget.height;
-        vSlider.top = 50;
+        vSlider.top = 30;
+        vSlider.thumb.top.select();
         vSlider.onChange.add(function(s) widget.height = s.value);
         container.addChild(vSlider);
 
+        var label = new Text();
+        label.text = 'Slice9Skin';
+
         var box = new VBox();
+        box.gap = 20;
+        box.addChild(label);
         box.addChild(container);
 
         return box;
