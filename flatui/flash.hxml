@@ -1,7 +1,6 @@
--lib stablexui-core
--lib stablexui-flash
 -cp src
 -main Main
+-lib stablexui-flash
 -debug
 -swf-header 1024:600:60:FFFFFF
 -swf-version 11.3
