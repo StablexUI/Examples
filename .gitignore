@@ -1,6 +1,7 @@
 dump/*
 *.sublime-*
 build/*
+*/build/*
 *.n
 experiments/
 *.hx.tmp
