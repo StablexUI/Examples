@@ -572,10 +572,8 @@ class Main
      */
     static public function scroll () : Widget
     {
-        var data = new BitmapData(1000, 1000);
-        data.perlinNoise(100, 80, 6, Std.random(10), false, false);
         var bmp = new Bmp();
-        bmp.bitmapData = data;
+        bmp.bitmapData = Assets.getNoiseBitmapData(1000, 1000);
 
         var scroll = new Scroll();
         scroll.width  = 400;

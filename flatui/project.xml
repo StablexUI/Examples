@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project>
+
+	<meta title="StablexUI: FlatUI theme demo" package="ru.stablex.ui.examples.flatui" version="1.0.0" company="StablexUI" />
+	<app main="Main" path="build" file="flatui" />
+	<window width="1024" height="600" background="#FFFFFF" fps="60" />
+
+	<source path="src" />
+
+	<haxelib name="openfl" />
+	<haxelib name="stablexui-flash" />
+
+	<haxeflag name="--no-inline" if="debug" />
+
+</project>
