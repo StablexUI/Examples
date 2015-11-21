@@ -66,6 +66,7 @@ class Main
         // Sx.dipFactor  = 0.6;
         Sx.pixelSnapping = true;
         Sx.theme = new FlatUITheme();
+        Sx.addInitTask(function(cb:Void->Void) haxe.Timer.delay(cb, 1000));
         Sx.init(run);
     }
 
@@ -180,11 +181,6 @@ class Main
         btn.text = 'Info Button';
         btn.style = ButtonStyle.INFO;
         btn.ico = Icons.infoCircle();
-        box.addChild(btn);
-
-        var btn = new Button();
-        btn.text = 'Disabled Button';
-        btn.enabled = false;
         box.addChild(btn);
 
         return box;
@@ -451,12 +447,6 @@ class Main
         btn.text = 'Info';
         btn.down.text = 'Info selected';
         btn.style = ButtonStyle.INFO;
-        box.addChild(btn);
-
-        var btn = new ToggleButton();
-        btn.text = 'Disabled';
-        btn.down.text = 'Disabled selected';
-        btn.enabled = false;
         box.addChild(btn);
 
         return box;
