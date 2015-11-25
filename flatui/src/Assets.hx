@@ -20,10 +20,14 @@ class Assets
      */
     static public function getBitmapData (path:String) : BitmapData
     {
-        return switch (path) {
-            case 'assets/winxp.png' : new WinXPBitmap(0, 0);
-            case _                  : null;
-        }
+        #if openfl
+            return openfl.Assets.getBitmapData(path);
+        #else
+            return switch (path) {
+                case 'assets/winxp.png' : new WinXPBitmap(0, 0);
+                case _                  : null;
+            }
+        #end
     }
 
 

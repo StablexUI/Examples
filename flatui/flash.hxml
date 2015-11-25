@@ -1,6 +1,7 @@
 -cp src
 -main Main
 -lib stablexui-flash
+-lib stablexui-theme-flatui
 -debug
 -swf-header 1024:600:60:FFFFFF
 -swf-version 11.3

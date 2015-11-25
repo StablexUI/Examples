@@ -9,6 +9,7 @@
 
 	<haxelib name="openfl" />
 	<haxelib name="stablexui-flash" />
+    <haxelib name="stablexui-theme-flatui" />
 
 	<haxeflag name="--no-inline" if="debug" />
 
