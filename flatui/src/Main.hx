@@ -9,6 +9,7 @@ import sx.skins.PaintSkin;
 import sx.properties.Align;
 import sx.skins.Skin;
 import sx.skins.Slice9Skin;
+import sx.skins.TileSkin;
 import sx.Sx;
 import sx.flatui.Icons;
 import sx.flatui.ButtonStyle;
@@ -609,11 +610,14 @@ class Main
         widget.top = 30;
         widget.left = 30;
 
-        var skin = new Slice9Skin();
-        skin.bitmapData = Assets.getBitmapData('assets/winxp.png');
-        skin.slice = [5, 10, 32, 48];
-        widget.skin = skin;
+        var slice9 = new Slice9Skin();
+        slice9.bitmapData = Assets.getBitmapData('assets/winxp.png');
+        slice9.slice = [5, 10, 32, 48];
+        widget.skin = slice9;
         container.addChild(widget);
+
+        var tile = new TileSkin();
+        tile.bitmapData = Assets.getBitmapData('assets/winxp.png');
 
         var hSlider = new Slider();
         hSlider.min = 60;
@@ -638,7 +642,26 @@ class Main
 
         var box = new VBox();
         box.gap = 20;
+
+        var group = new RadioGroup();
+        var radioBox = new HBox();
+        radioBox.gap = 20;
+
+        var radio = new Radio();
+        radio.selected = true;
+        radio.text = '9-Slice';
+        radio.group = group;
+        radio.onToggle.add(function(toggle) if (toggle.selected) widget.skin = slice9);
+        radioBox.addChild(radio);
+
+        var radio = new Radio();
+        radio.text = 'Tiling';
+        radio.group = group;
+        radio.onToggle.add(function(toggle) if (toggle.selected) widget.skin = tile);
+        radioBox.addChild(radio);
+
         box.addChild(label);
+        box.addChild(radioBox);
         box.addChild(container);
 
         return box;
