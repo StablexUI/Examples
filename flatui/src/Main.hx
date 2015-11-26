@@ -637,9 +637,6 @@ class Main
         vSlider.onChange.add(function(s) widget.height = s.value);
         container.addChild(vSlider);
 
-        var label = new Text();
-        label.text = 'Slice9Skin';
-
         var box = new VBox();
         box.gap = 20;
 
@@ -660,7 +657,6 @@ class Main
         radio.onToggle.add(function(toggle) if (toggle.selected) widget.skin = tile);
         radioBox.addChild(radio);
 
-        box.addChild(label);
         box.addChild(radioBox);
         box.addChild(container);
 

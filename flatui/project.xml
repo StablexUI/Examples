@@ -7,10 +7,13 @@
 
 	<source path="src" />
 
+    <assets path="assets" />
+
 	<haxelib name="openfl" />
 	<haxelib name="stablexui-flash" />
     <haxelib name="stablexui-theme-flatui" />
 
-	<haxeflag name="--no-inline" if="debug" />
+	<haxeflag name="-swf-version" value="11.3" />
+    <haxeflag name="--no-inline" if="debug" />
 
 </project>
