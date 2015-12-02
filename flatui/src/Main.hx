@@ -3,6 +3,7 @@ package ;
 import flash.events.Event;
 import flash.Lib;
 import sx.backend.BitmapData;
+import sx.flatui.TabBarStyle;
 import sx.groups.RadioGroup;
 import sx.layout.LineLayout;
 import sx.skins.PaintSkin;
@@ -112,6 +113,7 @@ class Main
     static private function buildGui () : Void
     {
         menu = new TabBar();
+        menu.style = TabBarStyle.VERTICAL;
 
         viewStack = new ViewStack();
         viewStack.width.pct  = 100;
@@ -121,8 +123,8 @@ class Main
 
         menu.viewStack = viewStack;
         menu.onResize.add(function(_,_,_,_) {
-            viewStack.top    = menu.height;
-            viewStack.height.pct = 100 * (1 - (menu.height / Sx.root.height));
+            viewStack.left    = menu.width;
+            viewStack.width.pct = 100 * (1 - (menu.width / Sx.root.width));
         });
 
         Sx.root.addChild(viewStack);
