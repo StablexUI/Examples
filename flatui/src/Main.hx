@@ -27,6 +27,7 @@ import sx.widgets.Bmp;
 import sx.widgets.Button;
 import sx.widgets.CheckBox;
 import sx.widgets.HBox;
+import sx.widgets.Popup;
 import sx.widgets.ProgressBar;
 import sx.widgets.Radio;
 import sx.widgets.Scroll;
@@ -63,7 +64,7 @@ class Main
         Lib.current.stage.scaleMode = flash.display.StageScaleMode.NO_SCALE;
         Lib.current.stage.align     = flash.display.StageAlign.TOP_LEFT;
 
-        // Sx.dipFactor  = 0.6;
+        Sx.dipFactor  = 0.7;
         Sx.pixelSnapping = true;
         Sx.theme = new FlatUITheme();
         Sx.addInitTask(function(cb:Void->Void) haxe.Timer.delay(cb, 1000));
@@ -79,16 +80,16 @@ class Main
         buildGui();
 
         var pages = [
-            'Buttons'        => buttons(),
-            'Toggle Buttons' => toggleButtons(),
-            'Text Inputs'    => textInputs(),
-            'Progress Bars'  => progressBars(),
-            'Sliders'        => sliders(),
-            'Checkboxes'     => checkBoxes(),
-            'Radio Toggles'  => radios(),
-            'Scroll'         => scroll(),
-            'Skins'          => skins(),
-            //'Callout'        => callout()
+            // 'Buttons'        => buttons(),
+            // 'Toggle Buttons' => toggleButtons(),
+            // 'Text Inputs'    => textInputs(),
+            // 'Progress Bars'  => progressBars(),
+            // 'Sliders'        => sliders(),
+            // 'Checkboxes'     => checkBoxes(),
+            // 'Radio Toggles'  => radios(),
+            // 'Scroll'         => scroll(),
+            // 'Skins'          => skins(),
+            'Popups'        => popup()
         ];
 
         //to ensure pages maintain order on each application run.
@@ -673,13 +674,17 @@ class Main
     /**
      * Description
      */
-    static public function callout () : Widget
+    static public function popup () : Widget
     {
         var box = new VBox();
 
         var button = new Button();
-        button.text = 'Show callout';
+        button.text = 'Show popup';
 
+        var popup = new Popup();
+        popup.onClick.add(function(_, _, _) popup.close());
+
+        button.onTrigger.add(function (_) popup.show());
         box.addChild(button);
 
         return box;
