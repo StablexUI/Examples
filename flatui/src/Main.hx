@@ -676,16 +676,23 @@ class Main
      */
     static public function popup () : Widget
     {
-        var box = new VBox();
-
-        var button = new Button();
-        button.text = 'Show popup';
+        var title = new Text();
+        title.text = 'Very important notification!';
+        var closeButton = new Button();
+        closeButton.text = 'Got it!';
 
         var popup = new Popup();
-        popup.onClick.add(function(_, _, _) popup.close());
+        popup.gap = 30;
+        popup.addChild(title);
+        popup.addChild(closeButton);
+        closeButton.onTrigger.add(function(_) popup.close());
 
-        button.onTrigger.add(function (_) popup.show());
-        box.addChild(button);
+        var showButton = new Button();
+        showButton.text = 'Show popup';
+        showButton.onTrigger.add(function (_) popup.show());
+
+        var box = new VBox();
+        box.addChild(showButton);
 
         return box;
     }
