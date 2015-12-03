@@ -87,7 +87,8 @@ class Main
             'Checkboxes'     => checkBoxes(),
             'Radio Toggles'  => radios(),
             'Scroll'         => scroll(),
-            'Skins'          => skins()
+            'Skins'          => skins(),
+            //'Callout'        => callout()
         ];
 
         //to ensure pages maintain order on each application run.
@@ -121,11 +122,14 @@ class Main
         viewStack.transition = new FadeTransition();
         viewStack.transition.duration = 0.2;
 
-        menu.viewStack = viewStack;
-        menu.onResize.add(function(_,_,_,_) {
+        var adjustViewStack = function () {
             viewStack.left    = menu.width;
             viewStack.width.pct = 100 * (1 - (menu.width / Sx.root.width));
-        });
+        }
+
+        menu.viewStack = viewStack;
+        menu.onResize.add(function(_,_,_,_) adjustViewStack());
+        menu.onInitialize.add(function(_) adjustViewStack());
 
         Sx.root.addChild(viewStack);
         Sx.root.addChild(menu);
@@ -639,9 +643,6 @@ class Main
         vSlider.onChange.add(function(s) widget.height = s.value);
         container.addChild(vSlider);
 
-        var box = new VBox();
-        box.gap = 20;
-
         var group = new RadioGroup();
         var radioBox = new HBox();
         radioBox.gap = 20;
@@ -659,8 +660,27 @@ class Main
         radio.onToggle.add(function(toggle) if (toggle.selected) widget.skin = tile);
         radioBox.addChild(radio);
 
+        var box = new VBox();
+        box.gap = 20;
+
         box.addChild(radioBox);
         box.addChild(container);
+
+        return box;
+    }
+
+
+    /**
+     * Description
+     */
+    static public function callout () : Widget
+    {
+        var box = new VBox();
+
+        var button = new Button();
+        button.text = 'Show callout';
+
+        box.addChild(button);
 
         return box;
     }
