@@ -2,7 +2,7 @@
 -main Main
 -lib stablexui-flash
 -lib stablexui-theme-flatui
--swf-header 400:200:60:FFFFFF
+-swf-header 1024:600:60:FFFFFF
 -swf-version 11.3
 -swf build/flatui.swf
 

@@ -64,7 +64,7 @@ class Main
         Lib.current.stage.scaleMode = flash.display.StageScaleMode.NO_SCALE;
         Lib.current.stage.align     = flash.display.StageAlign.TOP_LEFT;
 
-        Sx.dipFactor  = 0.7;
+        // Sx.dipFactor  = 0.7;
         Sx.pixelSnapping = true;
         Sx.theme = new FlatUITheme();
         Sx.addInitTask(function(cb:Void->Void) haxe.Timer.delay(cb, 1000));
@@ -80,15 +80,15 @@ class Main
         buildGui();
 
         var pages = [
-            // 'Buttons'        => buttons(),
-            // 'Toggle Buttons' => toggleButtons(),
-            // 'Text Inputs'    => textInputs(),
-            // 'Progress Bars'  => progressBars(),
-            // 'Sliders'        => sliders(),
-            // 'Checkboxes'     => checkBoxes(),
-            // 'Radio Toggles'  => radios(),
-            // 'Scroll'         => scroll(),
-            // 'Skins'          => skins(),
+            'Buttons'        => buttons(),
+            'Toggle Buttons' => toggleButtons(),
+            'Text Inputs'    => textInputs(),
+            'Progress Bars'  => progressBars(),
+            'Sliders'        => sliders(),
+            'Checkboxes'     => checkBoxes(),
+            'Radio Toggles'  => radios(),
+            'Scroll'         => scroll(),
+            'Skins'          => skins(),
             'Popups'        => popup()
         ];
 
