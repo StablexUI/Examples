@@ -107,6 +107,35 @@ class Main
 
         Sx.root.addChild(viewStack);
         Sx.root.addChild(menu);
+
+        checkStageSize();
+    }
+
+
+    /**
+     * Show alert if device screen is too small
+     */
+    static public function checkStageSize () : Void
+    {
+        if (Sx.stageWidth.px >= 670 && Sx.stageHeight.px >= 380) {
+            return;
+        }
+
+        var popup = new Popup();
+
+        var message = new Text();
+        message.text = 'This application is designed for bigger displays. Some content may not fit your screen.';
+        message.width = 200;
+        message.height = 80;
+
+        var button = new Button();
+        button.text = 'OK';
+        button.onTrigger.add(function(b) popup.close());
+
+        popup.addChild(message);
+        popup.addChild(button);
+
+        popup.show();
     }
 
 
