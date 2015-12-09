@@ -3,43 +3,15 @@ package ;
 import flash.events.Event;
 import flash.Lib;
 import sx.backend.BitmapData;
-import sx.flatui.TabBarStyle;
 import sx.groups.RadioGroup;
 import sx.layout.LineLayout;
-import sx.skins.PaintSkin;
 import sx.properties.Align;
-import sx.skins.Skin;
-import sx.skins.Slice9Skin;
-import sx.skins.TileSkin;
-import sx.Sx;
-import sx.flatui.Icons;
-import sx.flatui.ButtonStyle;
-import sx.flatui.CheckBoxStyle;
-import sx.flatui.ProgressBarStyle;
-import sx.flatui.RadioStyle;
-import sx.flatui.ScrollBarStyle;
-import sx.flatui.SliderStyle;
-import sx.flatui.TextInputStyle;
-import sx.flatui.TextStyle;
-import sx.flatui.FlatUITheme;
 import sx.transitions.FadeTransition;
-import sx.widgets.Bmp;
-import sx.widgets.Button;
-import sx.widgets.CheckBox;
-import sx.widgets.HBox;
-import sx.widgets.Popup;
-import sx.widgets.ProgressBar;
-import sx.widgets.Radio;
-import sx.widgets.Scroll;
-import sx.widgets.ScrollBar;
-import sx.widgets.TabBar;
-import sx.widgets.Text;
-import sx.widgets.TextInput;
-import sx.widgets.VBox;
-import sx.widgets.ViewStack;
-import sx.widgets.Widget;
-import sx.widgets.Slider;
-import sx.widgets.ToggleButton;
+import sx.Sx;
+import sx.skins.*;
+import sx.flatui.*;
+import sx.widgets.*;
+
 
 using Std;
 
@@ -89,7 +61,8 @@ class Main
             'Radio Toggles'  => radios(),
             'Scroll'         => scroll(),
             'Skins'          => skins(),
-            'Popups'        => popup()
+            'Popup'          => popup(),
+            'Callout'        => callout()
         ];
 
         //to ensure pages maintain order on each application run.
@@ -690,6 +663,40 @@ class Main
         var showButton = new Button();
         showButton.text = 'Show popup';
         showButton.onTrigger.add(function (_) popup.show());
+
+        var box = new VBox();
+        box.addChild(showButton);
+
+        return box;
+    }
+
+
+    /**
+     * Description
+     */
+    static public function callout () : Widget
+    {
+        var callout = new Callout();
+        callout.gap = 5;
+
+        var title = new Text();
+        title.style = TextStyle.LIGHT;
+        title.text = 'Very important information!';
+
+        var closeButton = new Button();
+        closeButton.applyStyle();
+        closeButton.style = null;
+        closeButton.padding = 5;
+        closeButton.autoSize = true;
+        closeButton.text = 'Ok!';
+        closeButton.onTrigger.add(function(b) callout.close());
+
+        callout.addChild(title);
+        callout.addChild(closeButton);
+
+        var showButton = new Button();
+        showButton.text = 'Show callout';
+        showButton.onTrigger.add(function(b) callout.show(b));
 
         var box = new VBox();
         box.addChild(showButton);
