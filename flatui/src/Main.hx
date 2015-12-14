@@ -291,6 +291,7 @@ class Main
         progress.style = ProgressBarStyle.WARNING;
         progress.value  = randomValue(progress);
         progress.interactive = true;
+        progress.bar.right.select();
         box.addChild(progress);
 
         var hbox = new HBox();
@@ -363,6 +364,7 @@ class Main
         var slider = new Slider();
         slider.style  = SliderStyle.WARNING;
         slider.value  = randomValue(slider);
+        slider.thumb.right.select();
         box.addChild(slider);
 
         var hbox = new HBox();
