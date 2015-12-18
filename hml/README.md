@@ -5,7 +5,7 @@ Source xml can be found at `hml/xml/Alerter.xml`
 
 Running this example:  
 
-1. `haxe generate.hxml`
+1. `openfl test flash -Dhml`
 2. `openfl test flash`
 
 You can see results here:  
