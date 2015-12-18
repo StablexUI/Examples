@@ -1,0 +1,10 @@
+<VBox width="100%" height="100%" xmlns="sx.widgets" xmlns:haxe="http://haxe.org/">
+    <haxe:Private>
+        <Popup id="popup" gap="20">
+            <Text text="'Surprise!!!'" />
+            <Button text="'Close'" onClick="popup.close();"/>
+        </Popup>
+    </haxe:Private>
+
+    <Button id="button" text="'Show alert'" onClick="popup.show();" />
+</VBox>

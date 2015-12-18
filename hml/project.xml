@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project>
+
+	<meta title="StablexUI: HML demo" package="ru.stablex.ui.examples.hml" version="1.0.0" company="StablexUI" />
+	<app main="Main" path="build" file="hml" />
+	<window width="1024" height="600" background="#FFFFFF" fps="60" />
+    <window width="0" height="0" if="html5 || flash" />
+
+	<source path="src" />
+    <source path="hml/gen" />
+
+	<haxelib name="openfl" />
+	<haxelib name="stablexui-flash" />
+    <haxelib name="stablexui-theme-flatui" />
+
+	<haxeflag name="-swf-version" value="11.3" />
+
+    <section if="hml">
+        <haxelib name="stablexui-hml" />
+        <app main="sx.hml.Generator"/>
+        <haxeflag name="--no-output"/>
+    </section>
+
+</project>
