@@ -16,8 +16,14 @@ class Alerter extends sx.widgets.VBox {
 
     @:isVar public var button(get, set):sx.widgets.Button;
 
-    public function destroyHml():Void {
+    private function destroyHml():Void {
         
+    }
+    
+
+    override public function dispose(disposeChildren:Bool = true):Void {
+        destroyHml();
+        super.dispose(disposeChildren);
     }
     
 
